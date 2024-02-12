@@ -10,45 +10,32 @@ This plugin will go over all of your functions that have .net core 2.0 runtime d
 
 It would split the value on first path separator and use first part of a string as location for a CS project folder and the rest as a path for a file. 
 
-So for example your have function with value like this:
+You must to specify 2 properties.
+`artifact`: the zip package that will be deployed to lambda
+`projectPath`: the location of the dotnet project file from which the lambda package to be created 
 
+
+Here the example of the definition:
 ```
-package:
- artifact: functionproject-folder/publish/deploy-package.zip
-```
-It equivalent to going into functionproject-folder and executing dotnet lambda package -o publish/deploy-package.zip
-
-If you want to execute serverless deploy for dotnet 6, you should add to serverless.yml: provider.runtime=dotnet6
-
-If you want to execute serverless deploy for arm64 architecture, you should add to serverless.yml: provider.architecture=arm64
-
-If you want to execute serverless deploy with no repacking of C# projects, you should add --nopack option
-
-As of version 0.9, the plugin now supports supplying a projectFolder setting for scenarios when a more complex folder structure is needed. 
-
-The projectFolder value must be a parent folder of the artifact location.
-
-E.g.
-
-```
-package:
- artifact: src/app/functionproject-folder/publish/deploy-package.zip
- projectFolder: src/app/functionproject-folder 
+function:
+    projectPath: src/app/function1/function1.csproj
+    package:
+        artifact: src/app/function1/publish/deploy-package.zip  
 ```
 
 ## Install
 
 ```
-npm install serverless-multi-dotnet
+npm install serverless-multi-dotnet-v3
 ```
 
 Add the plugin to your `serverless.yml` file:
 
 ```yaml
 plugins:
-  - serverless-multi-dotnet
+  - serverless-multi-dotnet-v3
 ```
 
 ## Note
-This work is based on @fruffin [serverless-dotnet plugin](https://github.com/fruffin/serverless-dotnet)
+This work is based on @tsibelman [serverless-dotnet plugin](https://github.com/tsibelman/serverless-multi-dotnet)
 
