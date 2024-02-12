@@ -1,14 +1,11 @@
 {
   "name": "serverless-multi-dotnet-v3",
-  "version": "0.9.13",
-  "description": "A Serverless plugin to pack lambdas in multiple C# projects using dotnen lambda package command.",
+  "version": "1.0.0",
+  "description": "A Serverless plugin to pack lambdas in multiple C# projects using dotnet lambda package command.",
   "main": "index.js",
-  "author": "Michael Tsibelman",
+  "author": "Yury Shubin",
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/yuryshubin/serverless-multi-dotnet-v3.git"
-  },
+  "repository": "git://github.com/yuryshubin/serverless-multi-dotnet-v3.git",
   "scripts": {
     "test": "jest"
   },
